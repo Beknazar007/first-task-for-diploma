@@ -1,25 +1,15 @@
 module "vpc" {
-  source  = "terraform-aws-modules/vpc/aws"
-  version = "~> 5.0"
+  source                    = "./vpc"
+  name                      = var.vpc_name
+  region                    = var.aws_region
+  environment               = var.environment
+  network_cidr              = var.vpc_network_cidr
+  eks_subnet_name           = ["eks-primary"]
+  eks_subnet_cidr           = ["${cidrsubnet(var.vpc_network_cidr, 4, 5)}", "${cidrsubnet(var.vpc_network_cidr, 4, 13)}"]
+  public_subnets_cidr       = ["${cidrsubnet(var.vpc_network_cidr, 4, 7)}", "${cidrsubnet(var.vpc_network_cidr, 4, 15)}"]
+  zones                   = var.resource_availability_zones
+  azs                     = length(var.resource_availability_zones)
+  enable_nat_gateway      = true
+  create_internet_gateway = true
 
-  name = local.name
-  cidr = local.vpc_cidr
-
-  azs             = local.azs
-  private_subnets = [for k, v in local.azs : cidrsubnet(local.vpc_cidr, 4, k)]
-  public_subnets  = [for k, v in local.azs : cidrsubnet(local.vpc_cidr, 8, k + 48)]
-  intra_subnets   = [for k, v in local.azs : cidrsubnet(local.vpc_cidr, 8, k + 52)]
-
-  enable_nat_gateway = true
-  single_nat_gateway = true
-
-  public_subnet_tags = {
-    "kubernetes.io/role/elb" = 1
-  }
-
-  private_subnet_tags = {
-    "kubernetes.io/role/internal-elb" = 1
-  }
-
-  tags = local.tags
 }
