@@ -1,6 +1,4 @@
 Plan your life ,  eat elephant in pieces , achieve  goals  and your dreams will come true.
-
- 
 ![asdf](./images/screen1.png)
 ![asdf](./images/screen2.png)
 
