@@ -58,6 +58,6 @@ jobs:
           terraform init
 
       - name: Terraform Apply
-        run: 
+        run: |
           cd terraform
           terraform apply -auto-approve 
