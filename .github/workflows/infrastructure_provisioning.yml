@@ -8,15 +8,14 @@ on:
     
 
 jobs:
-  terraform:
+  terraform-plan:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Terraform
-        uses: hashicorp/setup-terraform@v1
+        uses: hashicorp/setup-terraform@v3
 
 
       - name: Terraform Init
@@ -25,14 +24,30 @@ jobs:
       - name: Terraform Plan
         id: plan
         run: |
+          cd Terraform
           terraform init
-          terraform plan -out=tfplan.json
-          echo "::set-output name=plan_path::tfplan.json"
-          terraform show -json tfplan.json > tfplan.json
+          terraform plan 
 
-      - name: Display Terraform Plan
+  terraform-apply:
+    runs-on: ubuntu-latest
+    environment: prod
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v3
+
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Plan
+        id: plan
         run: |
-          cat tfplan.json
+          cd Terraform
+          terraform init
+          terraform plan 
 
       - name: Terraform Apply
-        run: terraform apply -auto-approve tfplan.json
+        run: terraform apply -auto-approve 
