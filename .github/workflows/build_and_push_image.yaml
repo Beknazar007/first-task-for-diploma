@@ -37,6 +37,7 @@ jobs:
       # Update Kubernetes deployment with the new image
       - name: Update Kubernetes deployment
         run: |
+          aws eks update-kubeconfig --name qa-eks1-us-east-1a
           kubectl set image deployment/todo-deployment todo=beknazar007/todo_app:${{ github.sha }}
           kubectl rollout status deployment/todo-deployment
 
