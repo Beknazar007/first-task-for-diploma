@@ -11,6 +11,7 @@ It saves in local storage that informations which we enter.
 
 # CI/CD Pipeline Setup Documentation:
 [Infrastructure as Code](Terraform/readme.md) 
+
 [Outputs of the pipelines](https://github.com/Beknazar007/first-task-for-diploma/actions) 
 
 
