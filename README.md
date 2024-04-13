@@ -3,10 +3,15 @@ Plan your life ,  eat elephant in pieces , achieve  goals  and your dreams will 
 ![asdf](./images/screen2.png)
 
 It saves in local storage that informations which we enter.
+
 [![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://drive.google.com/file/d/1bHMKIrh9imdWEIhAKnLCv0IiCpSp53Fl/view?usp=sharing)
-[Infrastructure as Code](Terraform/readme.md) 
+
+
 
 # CI/CD Pipeline Setup Documentation:
+[Infrastructure as Code](Terraform/readme.md) 
+
+
 
 ## Docker Build, Push, and Update EKS Deployment Pipeline Documentation
 
