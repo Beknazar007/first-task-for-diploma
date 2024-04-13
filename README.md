@@ -7,6 +7,7 @@ It saves in local storage that informations which we enter.
 [![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://drive.google.com/file/d/1bHMKIrh9imdWEIhAKnLCv0IiCpSp53Fl/view?usp=sharing)
 
 
+([Outputs of the pipelines](https://github.com/Beknazar007/first-task-for-diploma/actions)) 
 
 # CI/CD Pipeline Setup Documentation:
 [Infrastructure as Code](Terraform/readme.md) 
