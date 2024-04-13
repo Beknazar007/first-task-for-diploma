@@ -25,6 +25,7 @@ jobs:
       - name: Terraform Plan
         id: plan
         run: |
+          terraform init
           terraform plan -out=tfplan.json
           echo "::set-output name=plan_path::tfplan.json"
           terraform show -json tfplan.json > tfplan.json
