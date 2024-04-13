@@ -19,14 +19,13 @@ jobs:
 
 
       - name: Terraform Init
-        run: terraform init
+        run: |
+          cd ~/terraform
+          terraform init
 
       - name: Terraform Plan
         id: plan
         run: |
-          ls
-          cd ~/Terraform
-          terraform init
           terraform plan 
 
   terraform-apply:
@@ -41,13 +40,9 @@ jobs:
 
 
       - name: Terraform Init
-        run: terraform init
-
-      - name: Terraform Plan
-        id: plan
-        run: |
-          cd Terraform
-          terraform plan 
+        run:
+          cd ~/terraform 
+          terraform init
 
       - name: Terraform Apply
         run: terraform apply -auto-approve 
